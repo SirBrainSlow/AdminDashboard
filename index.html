@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Admin Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="logo-text">AdminDash</span>
+                </div>
+                <button class="toggle-sidebar" id="sidebarToggle">
+                    <i class='bx bx-menu-alt-left'></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul class="menu-list">
+                    <li class="menu-item active">
+                        <a href="#" class="menu-link">
+                            <i class='bx bx-grid-alt'></i>
+                            <span class="link-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class='bx bx-user'></i>
+                            <span class="link-text">Users</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class='bx bx-cart-alt'></i>
+                            <span class="link-text">Orders</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class='bx bx-box'></i>
+                            <span class="link-text">Products</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class='bx bx-cog'></i>
+                            <span class="link-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=6c5ce7&color=fff" alt="User"
+                        class="user-avatar">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="mobile-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+
+                <div class="search-bar">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search here..." id="globalSearch">
+                </div>
+
+                <div class="topbar-right">
+                    <button class="theme-toggle" id="themeSwitch">
+                        <i class='bx bx-moon'></i>
+                    </button>
+
+                    <div class="notification">
+                        <i class='bx bx-bell'></i>
+                        <span class="badge">3</span>
+                    </div>
+
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6c5ce7&color=fff"
+                            alt="Profile">
+                        <span class="user-name">Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="card kpi-card">
+                        <div class="card-icon revenue">
+                            <i class='bx bx-dollar'></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Revenue</h3>
+                            <h2 id="kpi-revenue">$0</h2>
+                            <p class="trend up"><i class='bx bx-up-arrow-alt'></i> +12%</p>
+                        </div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="card-icon orders">
+                            <i class='bx bx-shopping-bag'></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Orders</h3>
+                            <h2 id="kpi-orders">0</h2>
+                            <p class="trend up"><i class='bx bx-up-arrow-alt'></i> +5%</p>
+                        </div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="card-icon users">
+                            <i class='bx bx-group'></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Users</h3>
+                            <h2 id="kpi-users">0</h2>
+                            <p class="trend down"><i class='bx bx-down-arrow-alt'></i> -2%</p>
+                        </div>
+                    </div>
+                    <div class="card kpi-card">
+                        <div class="card-icon conversion">
+                            <i class='bx bx-bar-chart-alt-2'></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Conversion</h3>
+                            <h2 id="kpi-conversion">0%</h2>
+                            <p class="trend up"><i class='bx bx-up-arrow-alt'></i> +1%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-tables-grid">
+                    <!-- Chart Area -->
+                    <div class="card chart-container">
+                        <div class="card-header">
+                            <h3>Revenue Over Time</h3>
+                            <select class="chart-filter">
+                                <option>Daily</option>
+                                <option selected>Weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Activity List -->
+                    <div class="card activity-container">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <ul class="activity-list" id="activityList">
+                            <!-- JS populated -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="card table-container">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <div class="table-actions">
+                            <input type="text" id="tableSearch" placeholder="Filter orders...">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="recent-orders-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="id">Order ID <i class='bx bx-sort'></i></th>
+                                    <th data-sort="user">User <i class='bx bx-sort'></i></th>
+                                    <th data-sort="product">Product <i class='bx bx-sort'></i></th>
+                                    <th data-sort="date">Date <i class='bx bx-sort'></i></th>
+                                    <th data-sort="amount">Amount <i class='bx bx-sort'></i></th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- JS populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
